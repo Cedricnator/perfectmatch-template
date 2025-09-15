@@ -1,0 +1,46 @@
+<div class="grid grid-cols-12 gap-4 md:gap-6">
+  <!-- PerfectMatch placeholders: inicio -->
+  <div class="col-span-12">
+    <div class="p-5 bg-white rounded-lg shadow-sm dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+      <h2 class="mb-1 text-lg font-semibold text-gray-800 dark:text-white/90">Bienvenido a PerfectMatch</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400"></p>
+    </div>
+  </div>
+
+  <div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    <div class="p-5 bg-white rounded-lg shadow-sm dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+      <h3 class="font-medium text-gray-800 dark:text-white/90">Sugerencias de Match</h3>
+      <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Muestra 3-6 perfiles con avatar y % de compatibilidad. Botones: Ver, Enviar solicitud.</p>
+    </div>
+    <div class="p-5 bg-white rounded-lg shadow-sm dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+      <h3 class="font-medium text-gray-800 dark:text-white/90">Progreso de Perfil</h3>
+      <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Barra de avance del cuestionario y recordatorio para actualizar intereses o ubicación.</p>
+    </div>
+    <div class="p-5 bg-white rounded-lg shadow-sm dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
+      <h3 class="font-medium text-gray-800 dark:text-white/90">Estado de Membresía</h3>
+      <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Indica plan actual, días de prueba restantes y CTA para suscribirse.</p>
+    </div>
+  </div>
+  <!-- PerfectMatch placeholders: fin -->
+  <div class="col-span-12 space-y-6 xl:col-span-7">
+    <div><app-ecommerce-metrics /></div>
+
+    <div><app-monthly-sales-chart /></div>
+  </div>
+
+  <div class="col-span-12 xl:col-span-5">
+    <app-monthly-target />
+  </div>
+
+  <div class="col-span-12">
+    <app-statics-chart />
+  </div>
+
+  <div class="col-span-12 xl:col-span-5">
+    <app-demographic-card />
+  </div>
+
+  <div class="col-span-12 xl:col-span-7">
+    <app-recent-orders/>
+  </div>
+</div>
