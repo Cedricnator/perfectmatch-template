@@ -2,11 +2,24 @@ import { Component, HostListener } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { ThemeService } from "../../shared/services/theme.service";
+import { HeroComponent } from "./components/hero/hero.component";
+import { StepListComponent } from "./components/step-list/step-list.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { AdsComponent } from "./components/ads/ads.component";
+import { MembershipComponent } from "./components/membership/membership.component";
 
 @Component({
   selector: "app-landing",
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    HeroComponent,
+    StepListComponent,
+    FooterComponent,
+    AdsComponent,
+    MembershipComponent,
+  ],
   templateUrl: "./landing.component.html",
 })
 export default class LandingComponent {
@@ -63,7 +76,6 @@ export default class LandingComponent {
       if (closeMobile) this.mobileOpen = false;
     }
   }
-
 
   toggleTheme() {
     this.themeService.toggleTheme();

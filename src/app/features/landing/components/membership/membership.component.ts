@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-membership',
+  standalone: true,
+  templateUrl: './membership.component.html',
+})
+export class MembershipComponent {
+
+}
