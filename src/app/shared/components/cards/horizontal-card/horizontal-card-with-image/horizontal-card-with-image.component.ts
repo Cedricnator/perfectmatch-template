@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../component-card/component-card.component';
 import { CardFourComponent } from '../card-four/card-four.component';
 import { CardFiveComponent } from '../card-five/card-five.component';
 

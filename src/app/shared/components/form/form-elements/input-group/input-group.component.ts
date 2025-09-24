@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { LabelComponent } from '../../label/label.component';
 import { InputFieldComponent } from '../../input/input-field.component';
 import { PhoneInputComponent } from '../../group-input/phone-input/phone-input.component';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../cards/component-card/component-card.component';
 
 @Component({
   selector: 'app-input-group',

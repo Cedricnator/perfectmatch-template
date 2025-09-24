@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompatibilityRingComponent } from '../../ui/compatibility-ring/compatibility-ring.component';
-import { ProfileAvatarComponent } from '../../ui/profile-avatar/profile-avatar.component';
-import { VerifiedBadgeComponent } from '../../ui/verified-badge/verified-badge.component';
+import { ProfileAvatarComponent } from '../../../../../shared/components/ui/profile-avatar/profile-avatar.component';
+import { VerifiedBadgeComponent } from '../../../../../shared/components/ui/verified-badge/verified-badge.component';
+import { CompatibilityRingComponent } from '../../../../../shared/components/ui/compatibility-ring/compatibility-ring.component';
 
 @Component({
   selector: 'pm-match-summary-panel',

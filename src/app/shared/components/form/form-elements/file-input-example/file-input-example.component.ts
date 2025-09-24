@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../cards/component-card/component-card.component';
 import { LabelComponent } from '../../label/label.component';
 import { FileInputComponent } from '../../input/file-input.component';
 

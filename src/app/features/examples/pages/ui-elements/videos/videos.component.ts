@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentCardComponent } from '../../../../../shared/components/common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../../../shared/components/cards/component-card/component-card.component';
 import { PageBreadcrumbComponent } from '../../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
 import { FourIstoThreeComponent } from '../../../../../shared/components/ui/videos/four-isto-three/four-isto-three.component';
 import { OneIstoOneComponent } from '../../../../../shared/components/ui/videos/one-isto-one/one-isto-one.component';

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TextAreaComponent } from '../../input/text-area.component';
 import { CommonModule } from '@angular/common';
 import { LabelComponent } from '../../label/label.component';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../cards/component-card/component-card.component';
 
 @Component({
   selector: 'app-text-area-input',

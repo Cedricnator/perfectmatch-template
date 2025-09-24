@@ -16,7 +16,7 @@ import {
   ApexLegend,
   ApexOptions
 } from 'ng-apexcharts';
-import { ChartTabComponent } from '../../common/chart-tab/chart-tab.component';
+import { ChartTabComponent } from '../../charts/chart-tab/chart-tab.component';
 
 @Component({
   selector: 'app-statics-chart',

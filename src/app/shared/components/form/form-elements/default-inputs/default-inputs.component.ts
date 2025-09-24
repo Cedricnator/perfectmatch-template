@@ -4,7 +4,7 @@ import { LabelComponent } from '../../label/label.component';
 import { InputFieldComponent } from '../../input/input-field.component';
 import { SelectComponent } from '../../select/select.component';
 import { DatePickerComponent } from '../../date-picker/date-picker.component';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../cards/component-card/component-card.component';
 import { TimePickerComponent } from '../../time-picker/time-picker.component';
 
 @Component({

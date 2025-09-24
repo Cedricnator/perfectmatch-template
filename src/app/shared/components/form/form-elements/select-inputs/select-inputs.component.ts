@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MultiSelectComponent } from '../../multi-select/multi-select.component';
-import { ComponentCardComponent } from '../../../common/component-card/component-card.component';
+import { ComponentCardComponent } from '../../../cards/component-card/component-card.component';
 import { SelectComponent } from '../../select/select.component';
 import { LabelComponent } from '../../label/label.component';
 
