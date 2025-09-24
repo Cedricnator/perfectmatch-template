@@ -1,0 +1,154 @@
+<div class="space-y-6">
+  <div class="flex items-center justify-between gap-4 flex-wrap">
+    <h1 class="text-title-sm font-semibold text-gray-800 dark:text-white/90">Mensajes</h1>
+    <div class="flex items-center gap-2 text-xs">
+      <button class="px-3 h-9 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-white/5">+ Nuevo</button>
+      <button class="px-3 h-9 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-white/5">Filtrar</button>
+    </div>
+  </div>
+
+  <div class="grid gap-6 xl:grid-cols-12">
+    <!-- Conversations Sidebar -->
+    <aside class="xl:col-span-3 2xl:col-span-3 flex flex-col h-[72vh] rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
+      <div class="p-4 border-b border-gray-200 dark:border-gray-800">
+        <div class="relative">
+          <input type="text" placeholder="Buscar" class="w-full h-10 rounded-lg bg-gray-50 border border-gray-200 px-3 pr-9 text-xs text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-white/90" />
+          <span class="absolute inset-y-0 right-3 flex items-center text-gray-400">🔍</span>
+        </div>
+      </div>
+      <div class="flex-1 overflow-y-auto custom-scrollbar divide-y divide-gray-100 dark:divide-gray-800">
+        <button *ngFor="let c of [1,2,3,4,5,6,7]" class="w-full text-left group p-4 flex gap-3 hover:bg-gray-50 dark:hover:bg-white/5">
+          <span class="relative inline-flex">
+            <span class="h-11 w-11 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-[11px] font-medium text-gray-600 dark:text-gray-300">FM</span>
+            <span class="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border border-white dark:border-gray-900 bg-success-500"></span>
+          </span>
+          <span class="flex-1 min-w-0">
+            <span class="flex items-center justify-between gap-2">
+              <span class="text-xs font-semibold text-gray-800 dark:text-white/90 truncate">Contacto {{c}}</span>
+              <span class="text-[10px] text-gray-400">14:3{{c}}</span>
+            </span>
+            <span class="mt-1 block text-[11px] leading-4 text-gray-500 dark:text-gray-400 line-clamp-2">Mensaje previo estático de ejemplo para esta conversación.</span>
+          </span>
+          <span class="self-start mt-1 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-brand-500 px-1.5 text-[10px] font-medium text-white">{{c}}</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Chat Window -->
+    <section class="xl:col-span-6 2xl:col-span-6 flex flex-col h-[72vh] rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center gap-3 p-4 border-b border-gray-200 dark:border-gray-800">
+        <div class="h-11 w-11 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+        <div class="flex-1">
+          <p class="text-xs font-semibold text-gray-800 dark:text-white/90">Contacto seleccionado</p>
+          <p class="text-[11px] text-gray-500 dark:text-gray-400">Conectados hace 2h • Coincidencia alta</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="h-9 px-3 rounded-lg border border-gray-200 text-xs text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Perfil</button>
+          <button class="h-9 px-3 rounded-lg border border-gray-200 text-xs text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">⋮</button>
+        </div>
+      </div>
+      <!-- Messages Scroll -->
+      <div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6 bg-gray-50/40 dark:bg-gray-900/50">
+        <!-- Día separador -->
+        <div class="relative text-center">
+          <span class="inline-block text-[10px] px-2 py-1 rounded-full bg-gray-200 text-gray-600 dark:bg-gray-800 dark:text-gray-300">Hoy</span>
+        </div>
+        <!-- Mensaje recibido -->
+        <div class="flex items-start gap-3 max-w-lg">
+          <div class="h-9 w-9 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+          <div class="space-y-1">
+            <div class="rounded-2xl rounded-tl-sm bg-white border border-gray-200 px-4 py-2 text-[13px] leading-5 text-gray-700 shadow-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300">Hola, ¿cómo va tu semana? 😄</div>
+            <span class="block text-[10px] text-gray-400">14:22</span>
+          </div>
+        </div>
+        <!-- Mensaje enviado -->
+        <div class="flex items-start gap-3 max-w-lg ml-auto flex-row-reverse">
+          <div class="h-9 w-9 rounded-full bg-brand-500 text-white flex items-center justify-center text-[11px] font-semibold">Yo</div>
+          <div class="space-y-1 items-end">
+            <div class="rounded-2xl rounded-tr-sm bg-brand-500 text-white px-4 py-2 text-[13px] leading-5 shadow-sm">Bien! Cerrando unas cosas y con ganas de desconectar un rato 😌</div>
+            <span class="block text-right text-[10px] text-gray-400">14:24 • Visto</span>
+          </div>
+        </div>
+        <!-- Burbuja sistema -->
+        <div class="flex justify-center">
+          <div class="px-3 py-1.5 rounded-full bg-orange-100 text-[10px] font-medium text-orange-700 dark:bg-orange-500/15 dark:text-orange-400">Ambos respondieron la Pregunta del día. Chat completo desbloqueado.</div>
+        </div>
+        <!-- Otro bloque recibido -->
+        <div class="flex items-start gap-3 max-w-lg">
+          <div class="h-9 w-9 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+          <div class="space-y-1">
+            <div class="rounded-2xl rounded-tl-sm bg-white border border-gray-200 px-4 py-2 text-[13px] leading-5 text-gray-700 shadow-sm dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300">¿Plan ideal para el finde?</div>
+            <span class="block text-[10px] text-gray-400">14:25</span>
+          </div>
+        </div>
+      </div>
+      <!-- Composer -->
+      <div class="p-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <div class="flex items-end gap-3">
+          <button class="h-10 w-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-white/5">+</button>
+          <div class="flex-1 relative">
+            <textarea rows="1" placeholder="Escribe un mensaje..." class="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-2 text-[13px] leading-5 text-gray-700 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-200 dark:placeholder:text-gray-500"></textarea>
+            <div class="absolute right-2 bottom-2 flex items-center gap-1 text-gray-400">
+              <button class="size-7 rounded-md hover:bg-gray-100 flex items-center justify-center dark:hover:bg-white/5" aria-label="Adjuntar">📎</button>
+              <button class="size-7 rounded-md hover:bg-gray-100 flex items-center justify-center dark:hover:bg-white/5" aria-label="Emoji">😊</button>
+            </div>
+          </div>
+          <button class="h-10 px-4 rounded-xl bg-brand-500 text-white text-xs font-medium hover:bg-brand-600">Enviar</button>
+        </div>
+        <div class="mt-2 flex items-center justify-between">
+          <span class="text-[10px] text-gray-400">Plantilla: sin lógica real • soporte para multilinea, adjuntos, estados typing (a implementar)</span>
+          <div class="flex items-center gap-2 text-[10px] text-gray-400">
+            <span>↵ para nueva línea</span>
+            <span>Ctrl + Enter enviar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info / Profile side -->
+    <aside class="hidden xl:flex xl:col-span-3 2xl:col-span-3 flex-col h-[72vh] rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
+      <div class="p-5 border-b border-gray-200 dark:border-gray-800">
+        <p class="text-xs font-semibold text-gray-800 dark:text-white/90">Resumen rápido</p>
+      </div>
+      <div class="p-5 space-y-5 overflow-y-auto custom-scrollbar">
+        <div>
+          <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Compatibilidad</p>
+          <div class="flex items-center gap-3">
+            <div class="h-14 w-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-semibold">82%</div>
+            <p class="text-[11px] leading-5 text-gray-600 dark:text-gray-400 max-w-[160px]">Coincidencia alta basada en preferencias declaradas e intereses comunes.</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Intereses comunes</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-full bg-gray-100 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-300">Viajes</span>
+            <span class="px-2 py-1 rounded-full bg-gray-100 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-300">Música</span>
+            <span class="px-2 py-1 rounded-full bg-gray-100 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-300">Gastronomía</span>
+            <span class="px-2 py-1 rounded-full bg-gray-100 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-300">Arte</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Notas</p>
+          <div class="rounded-lg border border-dashed border-gray-300 dark:border-gray-700 p-3 text-[11px] text-gray-500 dark:text-gray-400">Área de notas privada (plantilla)</div>
+        </div>
+        <div>
+          <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Acciones</p>
+          <div class="flex flex-col gap-2">
+            <button class="w-full h-9 rounded-lg border border-gray-200 text-[11px] font-medium text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Marcar favorito</button>
+            <button class="w-full h-9 rounded-lg border border-gray-200 text-[11px] font-medium text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Silenciar</button>
+            <button class="w-full h-9 rounded-lg border border-error-200 text-[11px] font-medium text-error-600 bg-error-50 hover:bg-error-100 dark:border-error-500/30 dark:bg-error-500/10 dark:text-error-400 dark:hover:bg-error-500/15">Reportar</button>
+          </div>
+        </div>
+        <div>
+          <p class="text-[11px] font-medium text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wide">Estados</p>
+          <ul class="space-y-1 text-[10px] text-gray-500 dark:text-gray-400">
+            <li><span class="inline-block w-2 h-2 rounded-full bg-success-500 mr-2"></span>En línea</li>
+            <li><span class="inline-block w-2 h-2 rounded-full bg-gray-400 mr-2"></span>Notificaciones activas</li>
+            <li><span class="inline-block w-2 h-2 rounded-full bg-brand-500 mr-2"></span>Verificación visual aprobada</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="p-5 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none opacity-15 bg-[radial-gradient(circle_at_30%_20%,var(--color-brand-400)/.35,transparent_60%)]"></div>
+  <div class="flex items-center justify-between gap-4 relative">
+    <div>
+      <h3 class="text-sm font-semibold text-gray-800 dark:text-white/90">Perfil {{ label }}</h3>
+      <p class="mt-1 text-xs text-gray-600 dark:text-gray-400 max-w-xs">Completa tu perfil para mejorar la confianza y la visibilidad en los resultados.</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-gray-700 dark:text-gray-200">{{ (completion$ | async) || 0 }}%</span>
+      <div class="w-20 h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-brand-500 transition-all" [style.width.%]="(completion$ | async) || 0"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,150 +3,166 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./dashboard/dashboard.component'),
-    children:[
-      {
-        path: '',
-        loadComponent: () => import('./dashboard/pages/home/ecommerce.component'),
-        pathMatch: 'full',
-        title: 'Inicio | PerfectMatch',
-      },
-    ]
+    loadComponent: () => import('./features/landing/landing.component'),
+    title: 'PerfectMatch | Conexiones reales'
   },
+  // user funnel primary area
   {
     path: 'examples',
-    loadComponent: () => import('./examples/example.component'),
+    loadComponent: () => import('./features/examples/example.component'),
     children: [
       {
         path: '',
-        loadComponent: () => import('./examples/pages/dashboard/ecommerce/ecommerce.component'),
+        loadComponent: () => import('./features/examples/pages/dashboard/ecommerce/ecommerce.component'),
         pathMatch: 'full',
         title: 'Ejemplos',
       },
       {
         path:'calendar',
-        loadComponent: () => import('./examples/pages/calender/calender.component'),
+        loadComponent: () => import('./features/examples/pages/calender/calender.component'),
         title:'Calendario'
       },
       {
         path:'profile',
-        loadComponent: () => import('./examples/pages/profile/profile.component'),
+        loadComponent: () => import('./features/examples/pages/profile/profile.component'),
         title:'Perfil'
       },
       {
         path:'form-elements',
-        loadComponent: () => import('./examples/pages/forms/form-elements/form-elements.component'),
+        loadComponent: () => import('./features/examples/pages/forms/form-elements/form-elements.component'),
         title:'Formularios'
       },
       {
         path:'basic-tables',
-        loadComponent: () => import('./examples/pages/tables/basic-tables/basic-tables.component'),
+        loadComponent: () => import('./features/examples/pages/tables/basic-tables/basic-tables.component'),
         title:'Tablas'
       },
       {
         path:'avatar',
-        loadComponent: () => import('./examples/pages/ui-elements/avatar-element/avatar-element.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/avatar-element/avatar-element.component'),
         title:'Avatares'
       },
       {
         path:'badge',
-        loadComponent: () => import('./examples/pages/ui-elements/badges/badges.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/badges/badges.component'),
         title:'Insignias'
       },
       {
         path:'buttons',
-        loadComponent: () => import('./examples/pages/ui-elements/buttons/buttons.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/buttons/buttons.component'),
         title:'Botones'
       },
       {
         path:'images',
-        loadComponent: () => import('./examples/pages/ui-elements/images/images.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/images/images.component'),
         title:'Imágenes'
       },
       {
         path:'videos',
-        loadComponent: () => import('./examples/pages/ui-elements/videos/videos.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/videos/videos.component'),
         title:'Videos'
       }, 
       {
         path: 'line-chart',
-        loadComponent: () => import('./examples/pages/charts/line-chart/line-chart.component').then(m => m.LineChartComponent),
+        loadComponent: () => import('./features/examples/pages/charts/line-chart/line-chart.component').then(m => m.LineChartComponent),
         title:'Gráficos de líneas'
       },
       {
         path: 'bar-chart',
-        loadComponent: () => import('./examples/pages/charts/bar-chart/bar-chart.component').then(m => m.BarChartComponent),
+        loadComponent: () => import('./features/examples/pages/charts/bar-chart/bar-chart.component').then(m => m.BarChartComponent),
         title:'Gráficos de barras'
       },
       {
         path: 'alerts',
-        loadComponent: () => import('./examples/pages/ui-elements/alerts/alerts.component').then(m => m.AlertsComponent),
+        loadComponent: () => import('./features/examples/pages/ui-elements/alerts/alerts.component').then(m => m.AlertsComponent),
         title:'Alertas'
       },
       {
         path: 'avatar-element',
-        loadComponent: () => import('./examples/pages/ui-elements/avatar-element/avatar-element.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/avatar-element/avatar-element.component'),
         title:'Avatares'
       },
       {
         path: 'badge',
-        loadComponent: () => import('./examples/pages/ui-elements/badges/badges.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/badges/badges.component'),
         title:'Insignias'
       },
       {
         path: 'buttons',
-        loadComponent: () => import('./examples/pages/ui-elements/buttons/buttons.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/buttons/buttons.component'),
         title:'Botones'
       },
       {
         path: 'images',
-        loadComponent: () => import('./examples/pages/ui-elements/images/images.component'),
+        loadComponent: () => import('./features/examples/pages/ui-elements/images/images.component'),
         title:'Imágenes'
       }
+    ]
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('./features/dashboard/dashboard.component'),
+    children:[
+      {
+        path: '',
+        loadComponent: () => import('./features/dashboard/pages/home/ecommerce.component'),
+        pathMatch: 'full',
+        title: 'Panel | PerfectMatch',
+      },
     ]
   },
   // user-facing app (matches, profile, messages)
   {
     path: 'user',
-  loadComponent: () => import('./user/user.component'),
+  loadComponent: () => import('./features/user/user.component'),
     children: [
       {
         path: '',
-  loadComponent: () => import('./user/pages/matches/matches.component'),
+        loadComponent: () => import('./features/user/pages/home/user-home.component'),
         pathMatch: 'full',
-        title: 'Matches | PerfectMatch',
+        title: 'Inicio | PerfectMatch',
       },
       {
         path: 'profile',
-  loadComponent: () => import('./user/pages/profile/profile.component'),
+  loadComponent: () => import('./features/user/pages/profile/profile.component'),
         title: 'Perfil | PerfectMatch',
       },
       {
         path: 'messages',
-        loadComponent: () => import('./user/pages/messages/messages.component'),
+        loadComponent: () => import('./features/user/pages/messages/messages.component'),
         title: 'Mensajes | PerfectMatch',
       },
+      {
+        path: 'matches',
+        loadComponent: () => import('./features/user/pages/matches/matches.component'),
+        title: 'Matches | PerfectMatch'
+      },
+      {
+        path: 'verification',
+        loadComponent: () => import('./features/user/components/visual-verification/visual-verification.component').then(m => m.VisualVerificationComponent),
+        title: 'Verificación | PerfectMatch'
+      }
     ],
   },
   // auth pages
   {
     path: 'auth',
-    loadComponent: () => import('./auth/auth.component'),
+    loadComponent: () => import('./features/auth/auth.component'),
     children: [
       {
         path: 'login',
-        loadComponent: () => import('./auth/pages/login-page/login-page.component')
+        loadComponent: () => import('./features/auth/pages/login-page/login-page.component')
       },
       {
         path: 'register',
-        loadComponent: () => import('./auth/pages/register-page/register-page.component')
+        loadComponent: () => import('./features/auth/pages/register-page/register-page.component')
       }
     ]
   },
   // error pages
   {
     path:'**',
-    loadComponent: () => import('./error/not-found-error.component'),
+    loadComponent: () => import('./features/error/not-found-error.component'),
     title:'PerfectMatch - Página no encontrada'
   },
 ];

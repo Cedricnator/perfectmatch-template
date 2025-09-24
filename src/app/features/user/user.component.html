@@ -1,0 +1,37 @@
+ <div class="min-h-screen pb-16 flex flex-col">
+    <!-- Shared header (kept) -->
+    <app-header />
+    <!-- User top nav (inline) -->
+    <nav class="sticky top-[var(--header-offset,0px)] z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-gray-800 dark:bg-gray-900/90 hidden md:block" role="navigation" aria-label="Navegación principal usuario">
+      <div class="mx-auto max-w-(--breakpoint-2xl) px-4 md:px-6">
+        <ul class="relative flex items-center gap-1 py-2 text-xs font-medium" role="menubar">
+          <li role="none" class="group/nav">
+            <a routerLink="/user" routerLinkActive="nav-active" #rlaInicio="routerLinkActive" [attr.aria-current]="rlaInicio.isActive ? 'page' : null" role="menuitem" class="nav-link">Inicio</a>
+          </li>
+          <li role="none" class="group/nav">
+            <a routerLink="/user/matches" routerLinkActive="nav-active" #rlaMatches="routerLinkActive" [attr.aria-current]="rlaMatches.isActive ? 'page' : null" role="menuitem" class="nav-link">Matches</a>
+          </li>
+          <li role="none" class="group/nav">
+            <a routerLink="/user/messages" routerLinkActive="nav-active" #rlaMsg="routerLinkActive" [attr.aria-current]="rlaMsg.isActive ? 'page' : null" role="menuitem" class="nav-link">Mensajes</a>
+          </li>
+          <li role="none" class="group/nav">
+            <a routerLink="/user/profile" routerLinkActive="nav-active" #rlaPerfil="routerLinkActive" [attr.aria-current]="rlaPerfil.isActive ? 'page' : null" role="menuitem" class="nav-link">Perfil</a>
+          </li>
+          <li role="none" class="ml-auto group/nav">
+            <a routerLink="/user/explore" routerLinkActive="nav-active" #rlaExp="routerLinkActive" [attr.aria-current]="rlaExp.isActive ? 'page' : null" role="menuitem" class="nav-link">Explorar →</a>
+          </li>
+          <!-- Active underline indicator -->
+          <span class="pointer-events-none absolute bottom-0 left-0 h-[2px] w-8 rounded-full bg-brand-500 transition-[transform,width] duration-300 ease-out will-change-transform" 
+                [style.transform]="indicatorTransform" [style.width.px]="indicatorWidth"></span>
+        </ul>
+      </div>
+    </nav>
+    <!-- Main content -->
+    <main class="flex-1">
+      <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
+        <router-outlet />
+      </div>
+    </main>
+    <!-- Mobile bottom nav retained -->
+    <app-mobile-user-nav />
+  </div>

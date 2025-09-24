@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap")
-layer(base);
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "swiper/css/bundle";
 
@@ -167,14 +165,6 @@ layer(base);
   --z-index-999999: 999999;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -865,4 +855,28 @@ pre[class*="language-"] {
 }
 pre[class*="language-"].line-numbers {
   padding-left: 2.8em !important;
+}
+
+@layer utilities {
+  .bg-app-soft {
+    background:
+      radial-gradient(circle at 20% 20%, var(--color-brand-200, #b7e2cf) 0%, transparent 55%),
+      radial-gradient(circle at 80% 60%, var(--color-brand-300, #8fd0b6) 0%, transparent 60%);
+  }
+  .fade-slide-up { animation: fadeSlideUp .5s both; }
+  @keyframes fadeSlideUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  /* Additional motion utilities */
+  .animate-fade-up { opacity:0; transform:translateY(8px); animation: pmFadeUp .55s cubic-bezier(.16,.68,.43,.99) forwards; }
+  .animate-scale-in { opacity:0; transform:scale(.96); animation: pmScaleIn .4s cubic-bezier(.16,.68,.43,.99) forwards; }
+  .animate-fade { opacity:0; animation: pmFade .4s ease forwards; }
+  @keyframes pmFadeUp { to { opacity:1; transform:translateY(0);} }
+  @keyframes pmScaleIn { to { opacity:1; transform:scale(1);} }
+  @keyframes pmFade { to { opacity:1;} }
+  /* Navigation link styling */
+  .nav-link { position:relative; padding-left:.75rem; padding-right:.75rem; height:2.25rem; border-radius:.5rem; display:flex; align-items:center; gap:.25rem; font-size:12px; line-height:1; color:var(--color-gray-600); transition:background-color .2s,color .2s; }
+  .dark .nav-link { color:var(--color-gray-300); }
+  .nav-link:hover { background-color:var(--color-gray-100); }
+  .dark .nav-link:hover { background-color:rgba(255,255,255,.05); }
+  .nav-active { color:var(--color-brand-600) !important; background-color:var(--color-brand-50) !important; }
+  .dark .nav-active { color:var(--color-brand-400) !important; background-color:rgba(50,130,90,0.10) !important; }
 }

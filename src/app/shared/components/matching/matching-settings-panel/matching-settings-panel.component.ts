@@ -1,0 +1,45 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+interface AlgoToggle { key:string; label:string; description:string; active:boolean; weight?:number; }
+
+@Component({
+  selector: 'pm-matching-settings-panel',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+  <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 space-y-5 max-w-2xl">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h3 class="text-sm font-semibold text-gray-800 dark:text-white/90">Mecanismos de compatibilidad</h3>
+        <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">Activar / desactivar para pruebas (solo visual). Pesos ilustrativos.</p>
+      </div>
+      <span class="px-2 py-1 rounded-full text-[10px] font-medium bg-brand-50 text-brand-600 dark:bg-brand-500/15 dark:text-brand-400">Demo</span>
+    </div>
+    <div class="grid gap-3">
+      <div *ngFor="let a of algos" class="p-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 flex flex-col gap-2">
+        <div class="flex items-center gap-3">
+          <button type="button" (click)="a.active=!a.active" class="size-5 rounded border flex items-center justify-center text-[10px] font-semibold"
+            [class.bg-brand-500]="a.active" [class.border-brand-500]="a.active" [class.text-white]="a.active"
+            [class.bg-white]="!a.active" [class.border-gray-300]="!a.active" [class.text-gray-500]="!a.active" [class.dark\:bg-gray-900]="!a.active" [class.dark\:border-gray-600]="!a.active" [class.dark\:text-gray-400]="!a.active">{{ a.active ? '✓' : '' }}</button>
+          <p class="text-xs font-medium text-gray-800 dark:text-white/90 flex-1">{{ a.label }}</p>
+          <div class="flex items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400" *ngIf="a.weight!==undefined">
+            <span>{{ a.weight }}%</span>
+            <div class="w-16 h-1.5 rounded bg-gray-100 dark:bg-gray-800 overflow-hidden"><span class="block h-full bg-brand-500" [style.width.%]="a.weight"></span></div>
+          </div>
+        </div>
+        <p class="text-[11px] leading-4 text-gray-600 dark:text-gray-400">{{ a.description }}</p>
+      </div>
+    </div>
+  </div>
+  `
+})
+export class MatchingSettingsPanelComponent {
+  @Input() algos: AlgoToggle[] = [
+    { key:'answers', label:'Coincidencia de respuestas', description:'Cruce directo de respuestas cerradas.', active:true, weight:30 },
+    { key:'weighted', label:'Afinidad ponderada', description:'Factores con peso dinámico adaptativo.', active:true, weight:25 },
+    { key:'interests', label:'Intereses comunes', description:'Overlap de categorías declaradas.', active:true, weight:15 },
+    { key:'geo', label:'Proximidad geográfica', description:'Radio flexible según preferencias.', active:true, weight:15 },
+    { key:'predictive', label:'Modelos predictivos', description:'Inferencias de compatibilidad extendida.', active:true, weight:15 }
+  ];
+}

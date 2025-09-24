@@ -1,0 +1,84 @@
+<div class="space-y-10">
+    <!-- Top welcome & onboarding -->
+  <section class="grid gap-6 lg:grid-cols-3" appInViewport>
+      <div class="lg:col-span-2 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-white to-brand-50 dark:from-gray-900 dark:to-gray-900/40">
+        <h1 class="text-xl font-semibold text-gray-800 dark:text-white/90">Bienvenido/a 👋</h1>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 max-w-prose">Explora coincidencias priorizadas según tu compatibilidad. Completa tu cuestionario para mejorar la calidad de tus recomendaciones.</p>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          <div class="md:col-span-1 space-y-4">
+            <app-onboarding-progress [currentIndex]="1" [innerPercent]="60" />
+            <app-profile-completion />
+          </div>
+          <app-membership-plans class="md:col-span-2" />
+        </div>
+        <div class="mt-6 flex items-center justify-between flex-wrap gap-4">
+          <app-user-badges />
+          <a routerLink="/user/explore" class="text-xs font-medium text-brand-600 hover:underline dark:text-brand-400">Ir a explorar →</a>
+        </div>
+      </div>
+      <app-sponsor-banner />
+    </section>
+
+    <!-- Quick verification block -->
+  <section class="grid gap-6 lg:grid-cols-3" appInViewport="animate-scale-in">
+      <app-visual-verification />
+      <app-daily-question />
+      <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 flex flex-col justify-center text-center">
+        <h3 class="text-sm font-semibold text-gray-800 dark:text-white/90 mb-2">Consejo del día</h3>
+        <p class="text-xs text-gray-600 dark:text-gray-400">Una bio auténtica y específica genera conversaciones más profundas. Añade un detalle concreto hoy.</p>
+      </div>
+    </section>
+
+    <!-- Matches -->
+  <section class="space-y-4" appInViewport>
+      <div class="flex items-center justify-between">
+        <h2 class="text-sm font-semibold text-gray-800 dark:text-white/90">Sugerencias para ti</h2>
+        <button class="h-9 px-4 rounded-lg text-xs font-medium bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:text-white/90">Actualizar</button>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <app-match-card *ngFor="let m of sample" [name]="m.name" [age]="m.age" [location]="m.location" [compatibility]="m.c" [premium]="m.premium" [bio]="m.bio" />
+      </div>
+    </section>
+
+    <!-- Chat & extra -->
+  <section class="grid gap-6 lg:grid-cols-3" appInViewport>
+      <app-chat-preview-list class="lg:col-span-1" />
+      <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 lg:col-span-2">
+        <h2 class="text-sm font-semibold text-gray-800 dark:text-white/90 mb-2">Próximas mejoras (placeholder)</h2>
+        <ul class="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+          <li>• Filtros detallados (intención, valores, estilo de vida)</li>
+          <li>• Verificación visual asistida por IA</li>
+          <li>• Mensajes rápidos sugeridos según intereses comunes</li>
+        </ul>
+        <div class="mt-6 grid gap-6 sm:grid-cols-3">
+          <div class="space-y-3">
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Compatibilidad</p>
+            <pm-compatibility-ring [value]="86" label="Match" />
+          </div>
+          <div class="space-y-3">
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Avatar</p>
+            <pm-profile-avatar name="Andrea Vega" [premium]="true" status="online" [size]="72" />
+            <div class="flex gap-2 flex-wrap">
+              <pm-profile-avatar name="Luis" [size]="48" status="busy" />
+              <pm-profile-avatar name="María" [size]="48" status="offline" />
+            </div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Chips</p>
+            <div class="flex flex-wrap gap-2">
+              <pm-interest-chip label="Viajes" [active]="true" />
+              <pm-interest-chip label="Música" />
+              <pm-interest-chip label="Cocina" />
+              <pm-interest-chip label="Arte" />
+            </div>
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 pt-2">Skeleton</p>
+            <div class="space-y-2">
+              <pm-skeleton height="14" width="70%" />
+              <pm-skeleton height="14" width="50%" />
+              <pm-skeleton height="90" radius="12" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
