@@ -14,23 +14,16 @@ import { MobileUserNavComponent } from './components/mobile-user-nav/mobile-user
 })
 export default class UserComponent {
   private readonly sidebarService = inject(SidebarService);
-  indicatorTransform = 'translateX(0px)';
-  indicatorWidth = 0;
+  userHeaderLinks = [
+    { label: 'Inicio', path: '/user' },
+    { label: 'Matches', path: '/user/matches' },
+    { label: 'Mensajes', path: '/user/messages' },
+    { label: 'Perfil', path: '/user/profile' },
+  ];
 
   constructor(){
     this.sidebarService.setMenuItems(userNavItems);
     this.sidebarService.setOtherMenuItems(userOtherItems);
-    queueMicrotask(() => this.computeIndicator());
-    window.addEventListener('resize', () => this.computeIndicator(), { passive: true });
-  }
-
-  private computeIndicator(){
-    const active = document.querySelector('.nav-active.nav-link') as HTMLElement | null;
-    const list = active?.closest('ul');
-    if (!active || !list) return;
-    const listRect = list.getBoundingClientRect();
-    const rect = active.getBoundingClientRect();
-    this.indicatorWidth = rect.width;
-    this.indicatorTransform = `translateX(${rect.left - listRect.left}px)`;
+    // Indicator logic removed; navigation consolidated in header.
   }
 }

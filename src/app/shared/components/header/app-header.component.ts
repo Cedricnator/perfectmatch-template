@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,8 @@ import { UserDropdownComponent } from './user-dropdown/user-dropdown.component';
 export class AppHeaderComponent {
   public isApplicationMenuOpen = false;
   public readonly isMobileOpen$;
+  /** Inline user nav links injected by parent (desktop only). */
+  @Input() userNavLinks: { label: string; path: string }[] | null = null;
 
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
 
