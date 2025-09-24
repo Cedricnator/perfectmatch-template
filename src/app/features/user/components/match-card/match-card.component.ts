@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompatibilityRingComponent } from '../compatibility-ring/compatibility-ring.component';
+import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
 
 @Component({
   selector: 'app-match-card',
   standalone: true,
-  imports: [CommonModule, CompatibilityRingComponent],
+  imports: [CommonModule, CompatibilityRingComponent, ButtonComponent],
   template: `
   <div class="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 flex flex-col gap-4 shadow-theme-xs hover:shadow-theme-sm transition">
     <div class="flex items-start gap-3">
@@ -26,8 +27,8 @@ import { CompatibilityRingComponent } from '../compatibility-ring/compatibility-
     </div>
     <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-3" *ngIf="bio">{{ bio }}</p>
     <div class="flex gap-2 mt-auto">
-      <button class="flex-1 h-9 rounded-lg border border-gray-300 dark:border-gray-700 text-xs font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5">Ver</button>
-      <button class="flex-1 h-9 rounded-lg bg-brand-500 text-white text-xs font-medium hover:bg-brand-600">Conectar</button>
+      <app-button variant="outline" size="md" className="flex-1">Ver</app-button>
+      <app-button variant="primary" size="md" className="flex-1">Conectar</app-button>
     </div>
   </div>
   `

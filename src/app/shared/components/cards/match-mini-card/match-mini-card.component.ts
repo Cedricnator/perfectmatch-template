@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompatibilityRingComponent } from '../compatibility-ring/compatibility-ring.component';
-import { ProfileAvatarComponent } from '../profile-avatar/profile-avatar.component';
+import { CompatibilityRingComponent } from '../../ui/compatibility-ring/compatibility-ring.component';
+import { ProfileAvatarComponent } from '../../ui/profile-avatar/profile-avatar.component';
+import { ButtonComponent } from '../../ui/button/button.component';
 
-/** Mini Card reutilizable para listados densos de matches */
 @Component({
   selector: 'pm-match-mini-card',
   standalone: true,
-  imports: [CommonModule, CompatibilityRingComponent, ProfileAvatarComponent],
+  imports: [CommonModule, CompatibilityRingComponent, ProfileAvatarComponent, ButtonComponent],
   template: `
   <div class="group relative p-4 rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 hover:shadow-md transition-shadow overflow-hidden">
     <div class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-brand-500/5 to-brand-500/0 pointer-events-none transition-opacity"></div>
@@ -27,8 +27,8 @@ import { ProfileAvatarComponent } from '../profile-avatar/profile-avatar.compone
     </div>
     <p *ngIf="bio" class="mt-3 text-[11px] leading-4 text-gray-600 dark:text-gray-400 line-clamp-3">{{ bio }}</p>
     <div class="mt-4 flex items-center gap-2 text-[11px]">
-      <button class="px-3 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-white/5 dark:text-gray-300 dark:hover:bg-white/10">Ver</button>
-      <button class="px-3 h-8 rounded-lg bg-brand-500 text-white hover:bg-brand-600">Conectar</button>
+      <app-button size="sm" variant="secondary">Ver</app-button>
+      <app-button size="sm" variant="primary">Conectar</app-button>
     </div>
   </div>
   `,

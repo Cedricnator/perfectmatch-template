@@ -7,6 +7,7 @@ import { StepListComponent } from "./components/step-list/step-list.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { AdsComponent } from "./components/ads/ads.component";
 import { MembershipComponent } from "./components/membership/membership.component";
+import { ButtonComponent } from "../../shared/components/ui/button/button.component";
 
 @Component({
   selector: "app-landing",
@@ -19,6 +20,7 @@ import { MembershipComponent } from "./components/membership/membership.componen
     FooterComponent,
     AdsComponent,
     MembershipComponent,
+    ButtonComponent,
   ],
   templateUrl: "./landing.component.html",
 })

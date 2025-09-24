@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CardTitleComponent } from '../../../ui/card/card-title.component';
-import { CardDescriptionComponent } from '../../../ui/card/card-description.component';
+import { CardTitleComponent } from '../../card/card-title.component';
+import { CardDescriptionComponent } from '../../card/card-description.component';
 
 
 @Component({

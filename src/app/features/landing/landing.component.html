@@ -22,17 +22,21 @@
         </nav>
         <!-- Right actions -->
         <div class="flex items-center gap-1 md:gap-3">
-          <button type="button" (click)="toggleTheme()" class="h-9 w-9 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5" aria-label="Cambiar tema">
-            <span *ngIf="theme==='light'" class="text-[15px]">🌙</span>
-            <span *ngIf="theme==='dark'" class="text-[15px]">☀️</span>
-          </button>
-          <a routerLink="/auth/login" class="hidden sm:inline-flex h-9 px-4 rounded-lg text-xs font-medium border border-gray-300 bg-white/70 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-300 dark:hover:bg-white/5">Iniciar sesión</a>
-          <a routerLink="/auth/register" class="hidden sm:inline-flex h-9 px-4 rounded-lg text-xs font-medium bg-brand-500 text-white shadow-theme-xs hover:bg-brand-600">Crear cuenta</a>
+          <app-button variant="ghost" size="icon" ariaLabel="Cambiar tema" className="text-gray-500 dark:text-gray-400" (btnClick)="toggleTheme()">
+            @if (theme === 'light') {
+              <span class="text-[15px]">🌙</span>
+
+            }@else {
+              <span  class="text-[15px]">☀️</span>
+            }
+          </app-button>
+          <app-button routerLink="/auth/login" variant="outline" size="md" className="hidden sm:inline-flex">Iniciar sesión</app-button>
+          <app-button routerLink="/auth/register" variant="primary" size="md" className="hidden sm:inline-flex">Crear cuenta</app-button>
           <!-- Mobile menu toggle -->
-          <button type="button" (click)="mobileOpen=!mobileOpen" class="md:hidden h-9 w-9 rounded-lg border border-gray-300 bg-white/70 flex items-center justify-center text-gray-600 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-300 dark:hover:bg-white/5" [attr.aria-expanded]="mobileOpen" aria-controls="mobileNav" aria-label="Menú">
+          <app-button variant="outline" size="icon" className="md:hidden" (btnClick)="mobileOpen=!mobileOpen" [attr.aria-expanded]="mobileOpen" aria-label="Menú">
             <span *ngIf="!mobileOpen">☰</span>
             <span *ngIf="mobileOpen">×</span>
-          </button>
+          </app-button>
         </div>
         <!-- Mobile menu panel -->
         @if (mobileOpen) {
@@ -41,8 +45,8 @@
             <a (click)="scrollTo('planes',$event,true)" class="px-3 h-10 flex items-center rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5" [class.nav-active]="activeSection==='planes'">Planes</a>
             <a (click)="scrollTo('anuncios',$event,true)" class="px-3 h-10 flex items-center rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5" [class.nav-active]="activeSection==='anuncios'">Sponsors</a>
             <div class="mt-2 pt-2 border-t border-gray-200 dark:border-gray-800 flex gap-2">
-              <a routerLink="/auth/login" class="flex-1 h-10 inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white/70 text-xs font-medium text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-300 dark:hover:bg-white/5">Iniciar sesión</a>
-              <a routerLink="/auth/register" class="flex-1 h-10 inline-flex items-center justify-center rounded-lg bg-brand-500 text-xs font-medium text-white hover:bg-brand-600">Crear cuenta</a>
+              <app-button routerLink="/auth/login" variant="outline" size="md" className="flex-1">Iniciar sesión</app-button>
+              <app-button routerLink="/auth/register" variant="primary" size="md" className="flex-1">Crear cuenta</app-button>
             </div>
           </div>
         }

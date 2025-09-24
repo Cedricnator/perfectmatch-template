@@ -124,7 +124,7 @@ export const routes: Routes = [
       },
       {
         path: 'profile',
-  loadComponent: () => import('./features/user/pages/profile/profile.component'),
+        loadComponent: () => import('./features/user/pages/profile/profile.component'),
         title: 'Perfil | PerfectMatch',
       },
       {

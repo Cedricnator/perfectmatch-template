@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { CheckboxComponent } from '../../../../shared/components/form/input/checkbox.component';
@@ -24,6 +24,7 @@ import { ButtonComponent } from '../../../../shared/components/ui/button/button.
 })
 export default class LoginPageComponent {
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
   public showPassword = false;
   public isChecked = false;
 
@@ -36,5 +37,6 @@ export default class LoginPageComponent {
 
   public onSignIn(): void {
     this.authService.login(this.email, this.password);
+    this.router.navigate(['/user']);
   }
 }
