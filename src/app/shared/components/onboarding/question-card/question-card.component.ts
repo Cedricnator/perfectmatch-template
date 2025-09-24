@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'pm-question-card',
   standalone: true,
-  imports: [CommonModule, ],
+  imports: [CommonModule, ButtonComponent],
   template: `
   <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 max-w-xl mx-auto space-y-5">
     <div class="flex items-start justify-between gap-4">
@@ -16,23 +17,31 @@ import { CommonModule } from '@angular/common';
       <span class="px-2 py-1 text-[10px] rounded-full bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">{{ category }}</span>
     </div>
     <div class="grid gap-2" *ngIf="type==='single'">
-      <button *ngFor="let o of options" type="button" (click)="select(o)"
-        class="h-10 px-4 rounded-lg border text-xs font-medium text-left transition-colors"
-        [ngClass]="value===o ? 'bg-brand-500 text-white border-brand-500' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5'">
+      <app-button *ngFor="let o of options" size="md" variant="subtle"
+        class="justify-start h-10 px-4 text-left border hover:bg-gray-50 dark:hover:bg-white/5"
+        (btnClick)="select(o)"
+        [ngClass]="value===o
+          ? 'bg-brand-500 text-white border-brand-500'
+          : 'bg-white border-gray-200 text-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300'">
         {{ o }}
-      </button>
+      </app-button>
     </div>
     <div class="space-y-2" *ngIf="type==='scale'">
       <div class="flex justify-between text-[10px] text-gray-500 dark:text-gray-500"><span>{{ scaleLabels[0] }}</span><span>{{ scaleLabels[1] }}</span></div>
       <div class="flex items-center gap-2">
-        <button *ngFor="let n of scaleArray" (click)="select(n)"
-          class="size-8 rounded-full border text-[11px] font-medium flex items-center justify-center transition"
-          [ngClass]="value===n ? 'bg-brand-500 text-white border-brand-500' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5'">{{ n }}</button>
+        <app-button *ngFor="let n of scaleArray" size="xs" [circle]="true" variant="subtle"
+          class="size-8 !p-0 border hover:bg-gray-50 dark:hover:bg-white/5"
+          (btnClick)="select(n)"
+          [ngClass]="value===n
+            ? 'bg-brand-500 text-white border-brand-500'
+            : 'bg-white border-gray-200 text-gray-600 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300'">
+          {{ n }}
+        </app-button>
       </div>
     </div>
     <div class="pt-2 flex items-center justify-between">
-      <button type="button" (click)="back.emit()" class="h-9 px-4 rounded-lg border border-gray-200 text-xs text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Atrás</button>
-      <button type="button" (click)="next.emit(value)" class="h-9 px-5 rounded-lg bg-brand-500 text-white text-xs font-medium hover:bg-brand-600">Continuar</button>
+      <app-button variant="outline" size="md" (btnClick)="back.emit()" className="h-9 px-4 text-xs">Atrás</app-button>
+      <app-button variant="primary" size="md" (btnClick)="next.emit(value)" className="h-9 px-5 text-xs">Continuar</app-button>
     </div>
   </div>
   `

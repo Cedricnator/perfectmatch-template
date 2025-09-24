@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ProfileAvatarComponent } from '../../../../../shared/components/ui/profile-avatar/profile-avatar.component';
 import { VerifiedBadgeComponent } from '../../../../../shared/components/ui/verified-badge/verified-badge.component';
 import { CompatibilityRingComponent } from '../../../../../shared/components/ui/compatibility-ring/compatibility-ring.component';
+import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
 
 @Component({
   selector: 'pm-match-summary-panel',
   standalone: true,
-  imports: [CommonModule, CompatibilityRingComponent, ProfileAvatarComponent, VerifiedBadgeComponent],
+  imports: [CommonModule, CompatibilityRingComponent, ProfileAvatarComponent, VerifiedBadgeComponent, ButtonComponent],
   template: `
   <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 space-y-6 max-w-xl">
     <div class="flex items-start gap-4">
@@ -42,9 +43,9 @@ import { CompatibilityRingComponent } from '../../../../../shared/components/ui/
       </div>
     </div>
     <div class="flex flex-wrap gap-2 text-[11px]">
-      <button class="px-3 h-9 rounded-lg bg-brand-500 text-white font-medium hover:bg-brand-600">Enviar solicitud</button>
-      <button class="px-3 h-9 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Ver perfil</button>
-      <button class="px-3 h-9 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Descartar</button>
+      <app-button size="md" variant="primary" className="px-3">Enviar solicitud</app-button>
+      <app-button size="md" variant="outline" className="px-3">Ver perfil</app-button>
+      <app-button size="md" variant="ghost" className="px-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5">Descartar</app-button>
     </div>
   </div>
   `

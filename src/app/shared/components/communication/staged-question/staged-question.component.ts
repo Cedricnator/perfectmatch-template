@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'pm-staged-question',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   template: `
   <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 max-w-xl space-y-4">
     <div class="flex items-start justify-between gap-4">
@@ -21,7 +22,7 @@ import { CommonModule } from '@angular/common';
         <div class="min-h-[80px] rounded-lg border border-dashed border-gray-300 dark:border-gray-700 p-3 text-[11px] text-gray-500 dark:text-gray-400 flex items-center justify-center">
           {{ userQuestion || 'Escribe tu pregunta…' }}
         </div>
-        <button class="h-9 w-full rounded-lg text-[11px] font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-white/5 dark:text-gray-300 dark:hover:bg-white/10">Editar</button>
+  <app-button size="sm" variant="secondary" className="w-full h-9 text-[11px]">Editar</app-button>
       </div>
       <div class="space-y-2">
         <p class="text-[11px] font-medium text-gray-700 dark:text-gray-300">Pregunta de {{ otherName }}</p>
@@ -29,8 +30,8 @@ import { CommonModule } from '@angular/common';
           {{ otherQuestion || 'Esperando…' }}
         </div>
         <div class="flex gap-2">
-          <button class="flex-1 h-9 rounded-lg text-[11px] bg-success-500 text-white font-medium hover:bg-success-600">Aprobar</button>
-          <button class="flex-1 h-9 rounded-lg text-[11px] bg-error-500 text-white font-medium hover:bg-error-600">Rechazar</button>
+          <app-button size="sm" variant="success" className="flex-1 h-9 text-[11px]">Aprobar</app-button>
+          <app-button size="sm" variant="danger" className="flex-1 h-9 text-[11px]">Rechazar</app-button>
         </div>
       </div>
     </div>
@@ -46,7 +47,7 @@ import { CommonModule } from '@angular/common';
     </div>
     <div class="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-gray-800">
       <p class="text-[11px] text-gray-500 dark:text-gray-400">Ambas respuestas deberán aprobarse para avanzar al chat libre.</p>
-      <button class="h-9 px-4 rounded-lg bg-brand-500 text-white text-[11px] font-medium hover:bg-brand-600">Guardar</button>
+  <app-button size="sm" variant="primary" className="h-9 px-4 text-[11px]">Guardar</app-button>
     </div>
   </div>
   `

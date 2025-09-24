@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileAvatarComponent } from '../../ui/profile-avatar/profile-avatar.component';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'pm-visual-exchange',
   standalone: true,
-  imports: [CommonModule, ProfileAvatarComponent],
+  imports: [CommonModule, ProfileAvatarComponent, ButtonComponent],
   template: `
   <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 max-w-xl space-y-5">
     <div class="flex items-start justify-between gap-4">
@@ -21,14 +22,14 @@ import { ProfileAvatarComponent } from '../../ui/profile-avatar/profile-avatar.c
       <div class="space-y-2">
         <p class="text-[10px] uppercase tracking-wide font-medium text-gray-500 dark:text-gray-500">Tu envío</p>
         <div class="aspect-[4/5] rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[10px] text-gray-500 dark:text-gray-400">Foto subida</div>
-        <button class="w-full h-9 text-[11px] rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-white/5">Reemplazar</button>
+  <app-button size="sm" variant="outline" className="w-full h-9 text-[11px]">Reemplazar</app-button>
       </div>
       <div class="space-y-2">
         <p class="text-[10px] uppercase tracking-wide font-medium text-gray-500 dark:text-gray-500">De {{ otherName }}</p>
         <div class="aspect-[4/5] rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[10px] text-gray-500 dark:text-gray-400">Esperando...</div>
         <div class="flex gap-2">
-          <button class="flex-1 h-9 text-[11px] rounded-lg bg-success-500 text-white font-medium hover:bg-success-600">Aprobar</button>
-          <button class="flex-1 h-9 text-[11px] rounded-lg bg-error-500 text-white font-medium hover:bg-error-600">Rechazar</button>
+          <app-button className="flex-1 h-9 text-[11px]" size="sm" variant="success">Aprobar</app-button>
+          <app-button className="flex-1 h-9 text-[11px]" size="sm" variant="danger">Rechazar</app-button>
         </div>
       </div>
     </div>

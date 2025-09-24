@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../ui/button/button.component';
 
 @Component({
   selector: 'pm-chat-gate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   template: `
     <div class="p-5 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 shadow-sm">
       <div class="flex items-start justify-between gap-4">
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
           </h3>
           <p class="mt-1 text-xs text-gray-600 dark:text-gray-400">Desbloquea el chat completando pasos previos y confirmando intención genuina.</p>
         </div>
-        <button class="h-8 px-3 rounded-lg bg-white/70 dark:bg-white/5 border border-gray-200 dark:border-gray-700 text-[11px] text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-white/10 font-medium">Detalles</button>
+  <app-button size="xs" variant="outline" className="h-8 px-3 text-[11px] bg-white/70 dark:bg-white/5">Detalles</app-button>
       </div>
 
       <ol class="mt-5 space-y-3">
@@ -49,14 +50,14 @@ import { CommonModule } from '@angular/common';
           <p class="text-[11px] text-gray-500 dark:text-gray-500 italic">No hay requisitos pendientes.</p>
         </ng-template>
         <div class="mt-3 flex gap-2">
-          <button class="h-9 flex-1 rounded-lg text-[11px] bg-brand-500 text-white font-medium hover:bg-brand-600" *ngIf="status!=='unlocked'">Completar</button>
-          <button class="h-9 flex-1 rounded-lg text-[11px] bg-success-500 text-white font-medium hover:bg-success-600" *ngIf="status==='unlocked'">Entrar al Chat</button>
+          <app-button size="sm" variant="primary" className="flex-1 h-9 text-[11px]" *ngIf="status!=='unlocked'">Completar</app-button>
+          <app-button size="sm" variant="success" className="flex-1 h-9 text-[11px]" *ngIf="status==='unlocked'">Entrar al Chat</app-button>
         </div>
       </div>
 
       <div class="mt-5 flex items-center justify-between text-[10px] text-gray-500 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 pt-3">
         <p>Seguridad centrada en conexiones reales.</p>
-        <button class="underline hover:text-gray-700 dark:hover:text-gray-300">¿Por qué?</button>
+  <app-button size="xs" variant="ghost" className="underline px-0 h-auto">¿Por qué?</app-button>
       </div>
     </div>
   `

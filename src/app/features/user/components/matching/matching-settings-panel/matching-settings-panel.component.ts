@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
 
 interface AlgoToggle { key:string; label:string; description:string; active:boolean; weight?:number; }
 
 @Component({
   selector: 'pm-matching-settings-panel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   template: `
   <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 space-y-5 max-w-2xl">
     <div class="flex items-start justify-between gap-4">
@@ -19,9 +20,10 @@ interface AlgoToggle { key:string; label:string; description:string; active:bool
     <div class="grid gap-3">
       <div *ngFor="let a of algos" class="p-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 flex flex-col gap-2">
         <div class="flex items-center gap-3">
-          <button type="button" (click)="a.active=!a.active" class="size-5 rounded border flex items-center justify-center text-[10px] font-semibold"
+          <app-button size="xs" [circle]="true" variant="subtle" className="!p-0 size-5 border font-semibold text-[10px]"
+            (btnClick)="a.active=!a.active"
             [class.bg-brand-500]="a.active" [class.border-brand-500]="a.active" [class.text-white]="a.active"
-            [class.bg-white]="!a.active" [class.border-gray-300]="!a.active" [class.text-gray-500]="!a.active" [class.dark\:bg-gray-900]="!a.active" [class.dark\:border-gray-600]="!a.active" [class.dark\:text-gray-400]="!a.active">{{ a.active ? '✓' : '' }}</button>
+            [class.bg-white]="!a.active" [class.border-gray-300]="!a.active" [class.text-gray-500]="!a.active" [class.dark\:bg-gray-900]="!a.active" [class.dark\:border-gray-600]="!a.active" [class.dark\:text-gray-400]="!a.active">{{ a.active ? '✓' : '' }}</app-button>
           <p class="text-xs font-medium text-gray-800 dark:text-white/90 flex-1">{{ a.label }}</p>
           <div class="flex items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400" *ngIf="a.weight!==undefined">
             <span>{{ a.weight }}%</span>
