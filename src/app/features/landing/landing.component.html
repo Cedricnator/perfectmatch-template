@@ -30,8 +30,15 @@
               <span  class="text-[15px]">☀️</span>
             }
           </app-button>
-          <app-button routerLink="/auth/login" variant="outline" size="md" className="hidden sm:inline-flex text-gray-700 dark:text-gray-200">Iniciar sesión</app-button>
-          <app-button routerLink="/auth/register" variant="primary" size="md" className="hidden sm:inline-flex text-white">Crear cuenta</app-button>
+          <p></p>
+       <a [routerLink]="'/auth/login'"
+         class="hidden sm:inline-flex whitespace-nowrap items-center justify-center gap-2 font-medium rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 select-none h-9 px-4 text-xs border border-gray-300 bg-white !text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:!text-gray-200 dark:hover:bg-white/5">
+            Iniciar sesión
+          </a>
+       <a [routerLink]="'/auth/register'"
+         class="hidden sm:inline-flex whitespace-nowrap items-center justify-center gap-2 font-medium rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 select-none h-9 px-4 text-xs bg-brand-500 !text-white shadow-theme-xs hover:bg-brand-600">
+            Crear cuenta
+          </a>
           <!-- Mobile menu toggle -->
           <app-button variant="outline" size="icon" className="md:hidden" (btnClick)="mobileOpen=!mobileOpen" [attr.aria-expanded]="mobileOpen" aria-label="Menú">
             <span *ngIf="!mobileOpen">☰</span>
@@ -45,8 +52,14 @@
             <a (click)="scrollTo('planes',$event,true)" class="px-3 h-10 flex items-center rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5" [class.nav-active]="activeSection==='planes'">Planes</a>
             <a (click)="scrollTo('anuncios',$event,true)" class="px-3 h-10 flex items-center rounded-lg text-xs font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5" [class.nav-active]="activeSection==='anuncios'">Sponsors</a>
             <div class="mt-2 pt-2 border-t border-gray-200 dark:border-gray-800 flex gap-2">
-              <app-button routerLink="/auth/login" variant="outline" size="md" className="flex-1 text-gray-700 dark:text-gray-200">Iniciar sesión</app-button>
-              <app-button routerLink="/auth/register" variant="primary" size="md" className="flex-1 text-white">Crear cuenta</app-button>
+          <a [routerLink]="'/auth/login'"
+            class="flex-1 whitespace-nowrap items-center justify-center gap-2 font-medium rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 select-none h-9 px-4 text-xs border border-gray-300 bg-white !text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:!text-gray-200 dark:hover:bg-white/5">
+                Iniciar sesión
+              </a>
+          <a [routerLink]="'/auth/register'"
+            class="flex-1 whitespace-nowrap items-center justify-center gap-2 font-medium rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 select-none h-9 px-4 text-xs bg-brand-500 !text-white shadow-theme-xs hover:bg-brand-600">
+                Crear cuenta
+              </a>
             </div>
           </div>
         }

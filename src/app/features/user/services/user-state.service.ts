@@ -8,31 +8,30 @@ export type VerificationStatus =
   | "approved"
   | "rejected";
 
-@Injectable({ 
-  providedIn: "root" 
+@Injectable({
+  providedIn: "root",
 })
 export class UserStateService {
+  private readonly storageKey = "pm_state_v1";
+
   private onboardingStepSubject = new BehaviorSubject<number>(1); // 0..n
   private onboardingInnerPercentSubject = new BehaviorSubject<number>(60);
   private membershipSubject = new BehaviorSubject<MembershipTier>("free");
-  private verificationStatusSubject = new BehaviorSubject<VerificationStatus>(
-    "pending"
-  );
+  private verificationStatusSubject = new BehaviorSubject<VerificationStatus>("pending");
+  private intentionSubject = new BehaviorSubject<string | null>(null);
   private interestsSubject = new BehaviorSubject<string[]>([
     "Viajes",
     "Música",
   ]);
-  private intentionSubject = new BehaviorSubject<string | null>(null);
-  private readonly storageKey = "pm_state_v1";
 
-  onboardingStep$ = this.onboardingStepSubject.asObservable();
-  onboardingInnerPercent$ = this.onboardingInnerPercentSubject.asObservable();
-  membership$ = this.membershipSubject.asObservable();
-  verificationStatus$ = this.verificationStatusSubject.asObservable();
-  interests$ = this.interestsSubject.asObservable();
-  intention$ = this.intentionSubject.asObservable();
+  public onboardingStep$ = this.onboardingStepSubject.asObservable();
+  public onboardingInnerPercent$ = this.onboardingInnerPercentSubject.asObservable();
+  public membership$ = this.membershipSubject.asObservable();
+  public verificationStatus$ = this.verificationStatusSubject.asObservable();
+  public interests$ = this.interestsSubject.asObservable();
+  public intention$ = this.intentionSubject.asObservable();
 
-  profileCompletion$ = combineLatest([
+  public profileCompletion$ = combineLatest([
     this.intention$,
     this.interests$,
     this.verificationStatus$,
@@ -87,8 +86,7 @@ export class UserStateService {
           if (parsed.intention === null || typeof parsed.intention === "string")
             this.intentionSubject.next(parsed.intention);
         }
-      } catch {
-      }
+      } catch {}
     }
   }
 
@@ -104,35 +102,34 @@ export class UserStateService {
         intention: this.intentionSubject.value,
       };
       localStorage.setItem(this.storageKey, JSON.stringify(snapshot));
-    } catch {
-    }
+    } catch {}
   }
 
-  setOnboarding(step: number, innerPercent?: number) {
+  public setOnboarding(step: number, innerPercent?: number): void {
     this.onboardingStepSubject.next(step);
     if (innerPercent !== undefined)
       this.onboardingInnerPercentSubject.next(innerPercent);
     this.persist();
   }
 
-  setMembership(tier: MembershipTier) {
+  setMembership(tier: MembershipTier): void {
     this.membershipSubject.next(tier);
     this.persist();
   }
 
-  setVerification(status: VerificationStatus) {
+  setVerification(status: VerificationStatus): void {
     this.verificationStatusSubject.next(status);
     this.persist();
   }
 
-  toggleInterest(i: string) {
+  toggleInterest(i: string): void {
     const current = new Set(this.interestsSubject.value);
     current.has(i) ? current.delete(i) : current.add(i);
     this.interestsSubject.next([...current]);
     this.persist();
   }
 
-  setIntention(val: string) {
+  setIntention(val: string): void {
     this.intentionSubject.next(val);
     this.persist();
   }

@@ -9,7 +9,7 @@ import { ButtonSize, ButtonType, ButtonVariant } from './button.types';
   standalone: true,
   imports: [CommonModule, SafeHtmlPipe, RouterModule],
   templateUrl: './button.component.html',
-  styles: `:host{display:contents}`,
+  styles: `:host{display:inline-block}`,
   host: { 'class':'pm-btn-host' },
 })
 export class ButtonComponent {
@@ -31,10 +31,10 @@ export class ButtonComponent {
   @Output() btnClick = new EventEmitter<Event>();
 
   private readonly variantMap: Record<string,string> = {
-    primary: 'bg-brand-500 text-white shadow-theme-xs hover:bg-brand-600 disabled:bg-brand-300',
-    secondary: 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-white/5 dark:text-gray-300 dark:hover:bg-white/10',
-    outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-white/5',
-    ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5',
+    primary: 'bg-brand-500 !text-white shadow-theme-xs hover:bg-brand-600 disabled:bg-brand-300',
+    secondary: 'bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10',
+  outline: 'border border-gray-300 bg-white !text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:!text-gray-200 dark:hover:bg-white/5',
+    ghost: 'bg-transparent hover:bg-gray-100 dark:hover:bg-white/5',
     danger: 'bg-error-500 text-white hover:bg-error-600',
     success: 'bg-success-500 text-white hover:bg-success-600',
     subtle: 'bg-gray-50 text-gray-600 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-white/5',
